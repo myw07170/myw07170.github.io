@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html lang="en" data-default-color-scheme=auto>
+<html lang="en" >
 
 
 
@@ -9,7 +9,7 @@
   <meta charset="UTF-8">
 
   <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
-  <link rel="icon" href="/img/avatar-me.png">
+  <link rel="icon" href="/img/avatar-3.png">
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
@@ -17,7 +17,7 @@
   
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
   
-  <meta name="theme-color" content="#2f4154">
+  <meta name="theme-color" content="#fc9d9a">
   <meta name="author" content="MYW">
   <meta name="keywords" content="">
   
@@ -39,7 +39,7 @@
 <meta property="og:image" content="http://myw07170.github.io/img/Rotation/18-acc.png">
 <meta property="og:image" content="http://myw07170.github.io/img/Rotation/18-err.png">
 <meta property="article:published_time" content="2024-11-10T03:29:33.000Z">
-<meta property="article:modified_time" content="2024-11-10T12:33:39.213Z">
+<meta property="article:modified_time" content="2024-11-14T10:01:49.389Z">
 <meta property="article:author" content="MYW">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://myw07170.github.io/img/Rotation/technology_roadmap.png">
@@ -74,8 +74,6 @@
 
 
   <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
-  
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
   
 
 
@@ -152,30 +150,6 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/categories/" target="_self">
-                <i class="iconfont icon-category-fill"></i>
-                <span>Categories</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/tags/" target="_self">
-                <i class="iconfont icon-tags-fill"></i>
-                <span>Tags</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
               <a class="nav-link" href="/about/" target="_self">
                 <i class="iconfont icon-user-fill"></i>
                 <span>About</span>
@@ -191,12 +165,6 @@
           </li>
           
         
-        
-          <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
-              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
-            </a>
-          </li>
         
       </ul>
     </div>
@@ -277,53 +245,161 @@
 <blockquote>
 <p><em><strong>Undergraduate Thesis</strong><br>Advisor: Prof. Lili Yang<br>Author: Yiwen Mei<br>Oct. 2023-Jun. 2024</em></p>
 </blockquote>
-<h1 id="Brief-Introduction"><a href="#Brief-Introduction" class="headerlink" title="Brief Introduction"></a>Brief Introduction</h1><p>Research objective: Through in-depth analysis and processing of 3D point cloud data, develop a tool that can automatically label the object orientation in the data, that is, predict the orientation Angle of the target object and label it.</p>
+<h1 id="1-Brief-Introduction"><a href="#1-Brief-Introduction" class="headerlink" title="1. Brief Introduction"></a>1. Brief Introduction</h1><ul>
+<li><p>Research objective: Through in-depth analysis and processing of 3D point cloud data, develop a tool that can automatically label the object orientation in the data, that is, predict the orientation Angle of the target object and label it.</p>
+</li>
+<li><p>The technical route of this research is shown in the figure below, and the research background, research purpose and research significance are clearly defined in the project selection stage. Then I looked up and learned relevant literature. Through careful study of literature, I learned the theoretical basis and model framework of relevant algorithms, and tried to reproduce the model. At the same time, self-built data sets were created and processed. Relevant data were first collected, manually marked, then data enhancement and scale unification were carried out, and then data set formats were adjusted, categories were divided, and training sets and test sets were divided according to experimental needs. Finally, the selected model framework is trained with the created data set, and the relevant data of the final training results are obtained after repeated inspection and adjustment.</p>
+</li>
+</ul>
 <p  align = "center">
-<img  src="/img/Rotation/technology_roadmap.png" srcset="/img/loading.gif" lazyload  width="500"  />
+<img  src="/img/Rotation/technology_roadmap.png" srcset="/img/loading.gif" lazyload  width="450"  />
 </p>
 <center>technology roadmap</center>
 
-<h1 id="Construction-of-Data-Sets"><a href="#Construction-of-Data-Sets" class="headerlink" title="Construction of Data Sets"></a>Construction of Data Sets</h1><h3 id="Data-set-acquisition-and-annotation"><a href="#Data-set-acquisition-and-annotation" class="headerlink" title="Data set acquisition and annotation"></a>Data set acquisition and annotation</h3><p> <em><strong>1. data collection</strong></em></p>
+<h1 id="2-Construction-of-Data-Sets"><a href="#2-Construction-of-Data-Sets" class="headerlink" title="2. Construction of Data Sets"></a>2. Construction of Data Sets</h1><h3 id="2-1-Data-set-acquisition-and-annotation"><a href="#2-1-Data-set-acquisition-and-annotation" class="headerlink" title="2.1 Data set acquisition and annotation"></a>2.1 Data set acquisition and annotation</h3><p> <em><strong>1. data collection</strong></em></p>
 <ul>
-<li>The <strong>LiDAR</strong> was used to select different road scenes in different time periods in the campus of China Agricultural University, and the data was collected for three different objects – <strong>pedestrians, cars and cyclists</strong>.</li>
-<li>1043 scene pictures (.jpg) and 3D point cloud data (.txt) of <strong>1986 objects</strong> were collected.<p  align = "center">
+<li><strong>Lidar</strong> technology was used to select diverse road scenes in different time periods on the campus of China Agricultural University, and data were collected for three different common road objects – <strong>pedestrians, cars and cyclists</strong>. The collected data were systematically classified and saved in the folder “imageFile” and “pointCloudFile” respectively. The imageFile folder stores diversified scene images in.jpg format, including <strong>daytime, evening, and night</strong> road scene images. The “pointCloudFile” folder stores the 3D point cloud data of each target object in the form of a.txt text file. Each text file contains three fields, which are the x,y and z coordinates of each point in its point cloud, and these coordinate information accurately describe the position and shape of the target object in space.</li>
+</ul>
+<p  align = "center">
 <img  src="/img/Rotation/scene_picture.png" srcset="/img/loading.gif" lazyload  width="600"  />
 </p>
-<center>Scene pictures</center></li>
-</ul>
-<p> <em><strong>2. data format</strong></em></p>
+<center>Scene pictures</center>
+
+
 <ul>
-<li>The 3D point cloud data of the collected 1986 objects are saved in ‘’.txt’’ format.</li>
-<li>Each file contains three fields representing the x,y, and z coordinates of each point in its point cloud.<!-- <p  align = "center">
+<li>Through the above data collection and storage process, a high-quality original data set is constructed in this paper. The dataset contains a total of 1,043 images covering a diverse range of road environments and lighting conditions, as well as 3D point cloud data for a total of <strong>1,986 objects</strong>, which fall into three categories: pedestrians, cars and cyclists. The establishment of this data set provides a solid foundation for the subsequent data analysis and model training.</li>
+</ul>
+<style>
+.center 
+{
+  width: auto;
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+
+<div class="center">
+
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">daytime</th>
+<th align="center">evening</th>
+<th align="center">night</th>
+<th align="center">totality</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">pedestrians</td>
+<td align="center">290</td>
+<td align="center">299</td>
+<td align="center">621</td>
+<td align="center">1210</td>
+</tr>
+<tr>
+<td align="center">cars</td>
+<td align="center">125</td>
+<td align="center">56</td>
+<td align="center">169</td>
+<td align="center">350</td>
+</tr>
+<tr>
+<td align="center">cyclists</td>
+<td align="center">98</td>
+<td align="center">121</td>
+<td align="center">207</td>
+<td align="center">426</td>
+</tr>
+<tr>
+<td align="center">totality</td>
+<td align="center">513</td>
+<td align="center">476</td>
+<td align="center">997</td>
+<td align="center">1986</td>
+</tr>
+</tbody></table>
+</div>
+
+
+ <!-- ***2. data format***
+* The 3D point cloud data of the collected 1986 objects are saved in ''.txt'' format.
+* Each file contains three fields representing the x,y, and z coordinates of each point in its point cloud. -->
+<!-- <p  align = "center">
 <img  src="/img/Rotation/data_format.png" srcset="/img/loading.gif" lazyload  width="400"  />
 </p>
-<center>data format</center> --></li>
-</ul>
-<p> <em><strong>3. data annotation</strong></em></p>
+<center>data format</center> -->
+
+<p> <em><strong>2. data annotation</strong></em></p>
 <ul>
 <li>According to the shot picture and visualization point cloud of each target, arbitrarily adjust the Angle of view to judge its orientation.</li>
 <li>After adjusting to the <strong>overlooking Angle</strong>, mark the Angle. After marking, add <strong>the fourth field</strong> – Angle label in the target point cloud data file.</li>
 <li>The 3D point cloud data of <strong>1191 sample objects</strong> marked with orientation Angle is obtained by removing the data that cannot be judged by human beings.</li>
 </ul>
-<h3 id="Data-enhancement"><a href="#Data-enhancement" class="headerlink" title="Data enhancement"></a>Data enhancement</h3><p>Using the <strong>rotation matrix</strong> to achieve data enhancement, a dataset containing <strong>3600</strong> samples is obtained, and there are 10 samples for each Angle orientation.</p>
+<div class="center">
+
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">daytime</th>
+<th align="center">evening</th>
+<th align="center">night</th>
+<th align="center">totality</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">pedestrians</td>
+<td align="center">176</td>
+<td align="center">54</td>
+<td align="center">292</td>
+<td align="center">522</td>
+</tr>
+<tr>
+<td align="center">cars</td>
+<td align="center">123</td>
+<td align="center">54</td>
+<td align="center">160</td>
+<td align="center">337</td>
+</tr>
+<tr>
+<td align="center">cyclists</td>
+<td align="center">84</td>
+<td align="center">109</td>
+<td align="center">139</td>
+<td align="center">332</td>
+</tr>
+<tr>
+<td align="center">totality</td>
+<td align="center">383</td>
+<td align="center">217</td>
+<td align="center">591</td>
+<td align="center">1191</td>
+</tr>
+</tbody></table>
+</div>
+
+<h3 id="2-2-Data-enhancement"><a href="#2-2-Data-enhancement" class="headerlink" title="2.2 Data enhancement"></a>2.2 Data enhancement</h3><p>Using the <strong>rotation matrix</strong> to achieve data enhancement, a dataset containing <strong>3600</strong> samples is obtained, and there are 10 samples for each Angle orientation.</p>
 <p  align = "center">
 <img  src="/img/Rotation/data_enhancement.png" srcset="/img/loading.gif" lazyload  width="600"  />
 </p>
 <center>data enhancement procedure</center>
 
-<h1 id="3D-point-cloud-object-rotation-detection-based-on-Pointnet"><a href="#3D-point-cloud-object-rotation-detection-based-on-Pointnet" class="headerlink" title="3D point cloud object rotation detection based on Pointnet ++"></a>3D point cloud object rotation detection based on Pointnet ++</h1><h3 id="Data-preprocessing-The-point-cloud-number-of-each-sample-in-the-data-set-is-unified-to-300"><a href="#Data-preprocessing-The-point-cloud-number-of-each-sample-in-the-data-set-is-unified-to-300" class="headerlink" title="Data preprocessing: The point cloud number of each sample in the data set is unified to 300."></a>Data preprocessing: The point cloud number of each sample in the data set is unified to 300.</h3><ul>
-<li>Reduce points: FPS algorithm combined with K-Means clustering</li>
-<li>Add points: Linear interpolation algorithm<p  align = "center">
+<h1 id="3-3D-point-cloud-object-rotation-detection-based-on-Pointnet"><a href="#3-3D-point-cloud-object-rotation-detection-based-on-Pointnet" class="headerlink" title="3. 3D point cloud object rotation detection based on Pointnet ++"></a>3. 3D point cloud object rotation detection based on Pointnet ++</h1><h3 id="3-1-Data-preprocessing-The-point-cloud-number-of-each-sample-in-the-data-set-is-unified-to-300"><a href="#3-1-Data-preprocessing-The-point-cloud-number-of-each-sample-in-the-data-set-is-unified-to-300" class="headerlink" title="3.1 Data preprocessing: The point cloud number of each sample in the data set is unified to 300."></a>3.1 Data preprocessing: The point cloud number of each sample in the data set is unified to 300.</h3><h5 id="Reduce-points-FPS-algorithm-combined-with-K-Means-clustering"><a href="#Reduce-points-FPS-algorithm-combined-with-K-Means-clustering" class="headerlink" title="Reduce points: FPS algorithm combined with K-Means clustering"></a>Reduce points: FPS algorithm combined with K-Means clustering</h5><p>Farthest Point Sampling (FPS) algorithm is a common and effective method to reduce the number of point cloud data points. The algorithm constructs a representative point set by iteratively selecting the point farthest from the current point set, thereby simplifying and homogenizing the distribution of data points. In order to further optimize the effect of FPS algorithm, this study introduces K-Means clustering method to improve the selection process of initial points. Specifically, firstly, the K-means algorithm is used to cluster the point cloud data and generate K initial centroid points. FPS sampling is then performed based on these centroid points, thus ensuring that the number of points is effectively reduced while the object’s contour features are preserved. This FPS algorithm combined with K-Means clustering can significantly improve the rationality and efficiency of data point selection.</p>
+<p  align = "center">
 <img  src="/img/Rotation/reduce_points.png" srcset="/img/loading.gif" lazyload  width="450"  />
 </p>
-<center>e.g. reduce points</center></li>
-</ul>
+<center>e.g. reduce points</center>
+
+
+<h4 id="Add-points-Linear-interpolation-algorithm"><a href="#Add-points-Linear-interpolation-algorithm" class="headerlink" title="Add points: Linear interpolation algorithm"></a>Add points: Linear interpolation algorithm</h4><p>The purpose of adding points is to improve the accuracy of the model and the ability to capture detail. This process can be accomplished by simply copying existing data points, but a more precise and efficient way can be achieved by using linear interpolation techniques. Linear interpolation is a mature mathematical method that estimates the value of unknown points by constructing straight lines or curves between known data points, thus effectively filling in the blank areas of the data, thereby enhancing the detail representation and overall accuracy of the model.</p>
 <p  align = "center">
 <img  src="/img/Rotation/add_points.png" srcset="/img/loading.gif" lazyload  height="250"  />
 </p>
 <center>e.g. add points</center>
 
-<h3 id="Model-training-results"><a href="#Model-training-results" class="headerlink" title="Model training results"></a>Model training results</h3><h4 id="Training-process-and-results-of-data-set-1-12-classification"><a href="#Training-process-and-results-of-data-set-1-12-classification" class="headerlink" title="Training process and results of data set 1 (12 classification)"></a>Training process and results of data set 1 (12 classification)</h4><!-- <p  align = "center">
+<h3 id="3-2-Model-training-results"><a href="#3-2-Model-training-results" class="headerlink" title="3.2 Model training results"></a>3.2 Model training results</h3><h4 id="Training-process-and-results-of-data-set-1-12-classification"><a href="#Training-process-and-results-of-data-set-1-12-classification" class="headerlink" title="Training process and results of data set 1 (12 classification)"></a>Training process and results of data set 1 (12 classification)</h4><!-- <p  align = "center">
 <img  src="/img/Rotation/12-acc.png" srcset="/img/loading.gif" lazyload  height="250"  />
 </p>
 <center></center>
@@ -332,8 +408,10 @@
 <img  src="/img/Rotation/12-err.png" srcset="/img/loading.gif" lazyload  height="250"  />
 </p>
 <center></center> -->
-
-
+<ul>
+<li>After 300 training iterations, the PointNet++ model achieved significant performance improvements on the self-built dataset 1 above. In order to select the optimal model, this paper evaluates the model based on the accuracy of the test set, and saves the results of the round with the highest accuracy of the test set. The final performance is summarized in the following table, where the training set reaches an accuracy of about 95.03%, indicating that the model effectively learns the features of the data set. The accuracy of the test set is about 84.03%, which reflects the generalization ability of the model on new data.</li>
+<li>In order to evaluate the performance of the model more comprehensively, the average Angle error is further calculated. As can be seen from the table, the average Angle error of the training set is 10.38°, which shows the high precision of the model in classification Angle. The average Angle error of the test set is 14.84°, which is slightly higher than that of the training set, but still within the acceptable range, indicating that the model can still maintain good performance in the face of unseen data. These results provide a valuable reference for the follow-up research.</li>
+</ul>
 <style>
 .center 
 {
@@ -377,6 +455,10 @@
 </p>
 <center></center> -->
 
+<ul>
+<li>After 300 training iterations on the self-built dataset 2, the PointNet++ model also showed significant performance improvements. In order to select the optimal model configuration, this paper evaluates the accuracy of the test set carefully, and saves the results of the round with the highest accuracy of the test set. The final model performance is summarized in the following table: On the training set, the PointNet++ model achieves about 90.90% accuracy, which fully proves that the model can effectively learn and capture key features in dataset 2. On the test set, the model also achieved an accuracy of about 75.69%, which indicates that the model shows strong generalization ability in the face of new data.</li>
+<li>Furthermore, the average Angle error of the training set and the test set is calculated. The average Angle error of the training set is 8.21°, which indicates that the model has a high accuracy in the classification Angle. Although the average Angle error of the test set is 12.53°, which is slightly higher than that of the training set, this value is still within the acceptable range, which once again verifies the good performance of the model on the unseen data. These detailed performance evaluation results not only provide a strong support for the current research, but also provide a valuable reference for the subsequent research work.</li>
+</ul>
 <div class="center">
 
 <table>
@@ -400,7 +482,20 @@
 </tbody></table>
 </div>
 
-<h3 id="Effect-display"><a href="#Effect-display" class="headerlink" title="Effect display"></a>Effect display</h3><h1 id="Summary-and-prospect"><a href="#Summary-and-prospect" class="headerlink" title="Summary and prospect"></a>Summary and prospect</h1>
+<p>In summary, compared with dataset 1, the model of dataset 2, although slightly less accurate, showed better performance in terms of average angular error. This result has its inherent logical rationality. Given that the classification accuracy of dataset 2 is set at 20°, compared with the classification accuracy of dataset 1 at 30°, the standard is more refined and the requirements are more stringent, which undoubtedly increases the difficulty of the classification task and leads to a slight decline in the classification accuracy. However, on the other hand, just because data set 2 has higher requirements for classification accuracy, the average Angle error displayed by its model in the prediction process is significantly reduced, which means that the deviation between the predicted value and the real value is effectively controlled. Therefore, for these two training results, we can not simply classify them as good or bad, but should choose and apply the most appropriate model based on the needs of practical applications.</p>
+<h3 id="3-3-Effect-display"><a href="#3-3-Effect-display" class="headerlink" title="3.3 Effect display"></a>3.3 Effect display</h3><h1 id="4-Summary-and-prospect"><a href="#4-Summary-and-prospect" class="headerlink" title="4. Summary and prospect"></a>4. Summary and prospect</h1><h3 id="4-1-Summary"><a href="#4-1-Summary" class="headerlink" title="4.1 Summary"></a>4.1 Summary</h3><p>Through rigorous experimental verification, this study not only validates the effectiveness of Pointnet ++ model in 3D point cloud rotation detection tasks, but also provides technical tools for environment perception and decision making of autonomous driving systems. Specifically, the main academic achievements of this research are as follows:</p>
+<ol>
+<li>A 3D point cloud dataset covering three common objects of pedestrians, cars and cyclists in the road scene was successfully constructed, and the dataset included samples of various rotation angles. Through data enhancement technology, the diversity and distribution balance of data sets are effectively improved, and rich training samples are provided for training models with stronger robustness.</li>
+<li>PointNet++ model was used for training, which was systematically trained and tested on self-built data sets. The experimental results show that the model has good performance in classification accuracy and Angle prediction ability. During the training process, the model showed efficient recognition of each rotation Angle, which further verified the great potential of deep learning in processing 3D point cloud data.</li>
+<li>Active exploration and attempts are made in the rotation Angle prediction of point cloud data. By combining the existing deep learning model with the self-developed data processing method, remarkable results have been achieved in improving the adaptability and accuracy of the model in complex environments, providing an effective tool for the environment perception and decision making of the autonomous driving system.</li>
+</ol>
+<h3 id="4-2-Prospect"><a href="#4-2-Prospect" class="headerlink" title="4.2 Prospect"></a>4.2 Prospect</h3><ol>
+<li>Model optimization: Further explore the direction of model optimization, try to improve the overall performance and reduce the amount of computation</li>
+<li>Accuracy improvement: regression model is introduced to achieve specific numerical prediction of orientation Angle</li>
+<li>Field evaluation: The research results are applied to evaluate the model performance in actual vehicle testing</li>
+<li>……</li>
+</ol>
+
                 
               </div>
             
